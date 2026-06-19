@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: wavecloud
+      POSTGRES_PASSWORD: wavecloud
+      POSTGRES_DB: wavecloud
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  soroban-rpc:
+    image: stellar/soroban-rpc:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - "RUST_LOG=info"
+
+volumes:
+  pgdata:

@@ -1,0 +1,5 @@
+requests
+python-dotenv
+stellar-sdk
+pynacl
+pytest
